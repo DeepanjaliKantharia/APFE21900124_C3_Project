@@ -66,5 +66,18 @@ public class Restaurant {
     public String getName() {
         return name;
     }
+    //adding method getOrderValue for calculating the value of order of the selected items from menu
+    public int getOrderValue(String itemName1, String itemName2) {
+        int total = 0;
+        for (Item item : menu) {
+            if (item.getName().equals(itemName1)) {
+                total = item.getPrice() + total;
+            }
+            if (item.getName().equals(itemName2)) {
+                total = item.getPrice() + total;
+            }
+        }
+        return total;
+    }
 
 }
