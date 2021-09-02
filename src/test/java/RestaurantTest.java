@@ -98,6 +98,17 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //Creating test for testing getOrderValue method which returns the total amount of the order
+    @Test
+    public void get_order_value_should_give_total_value_of_the_2_item_selected_which_are_Sweet_corn_soup_and_Vegetable_lasagne(){
+        LocalTime openingTime = LocalTime.parse("10:30:00");
+        LocalTime closingTime = LocalTime.parse("22:00:00");
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
 
+        int total = restaurant.getOrderValue("Sweet corn soup", "Vegetable lasagne");
+        assertEquals(388, total);
+    }
 
 }
